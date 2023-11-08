@@ -1130,7 +1130,18 @@ nav{
         font-size: .7rem;
         overflow-x: hidden;
     }
-
+    .whatsapp{
+        right: 2rem;
+        bottom: 7rem;
+        background: var(--green-1);
+        border-radius: 50%;
+        text-decoration: none;
+        
+        & i{
+            font-size: 1.5rem;
+            color: var(--col-drk-4);
+        }
+    }
     .scrolltoTop{
         right: 2rem;bottom: 2rem;
     
