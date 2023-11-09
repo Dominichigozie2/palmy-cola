@@ -42,7 +42,6 @@ const  bottle = document.querySelector(".fader");
 const  contentFader = document.querySelector(".right-fader");
 
 
-console.log(Section);
 const option ={
     rootMargin: "-10px",
     threshold: 0,
@@ -54,7 +53,6 @@ const observerTwo = new IntersectionObserver(function(ent, observerTwo){
             bottle.classList.remove("coolin");
             contentFader.classList.remove("right");
         }else{
-            console.log(bottle); 
             bottle.classList.add("coolin");
             contentFader.classList.add("right");
         }
@@ -162,4 +160,48 @@ menuBar.addEventListener("click", ()=>{
         menuBar.classList.remove("fa-times");
         container.classList.remove("width");
     });
+});
+
+
+
+
+
+
+
+// the image modal contents
+
+
+const galleryCards = document.querySelectorAll('.card-image');
+
+// console.log(galleryCards);
+
+galleryCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const clickedImage = card.querySelector('img');
+    const imageUrl = clickedImage.src;
+    const imageAlt = clickedImage.alt;
+
+    
+
+    // Create a modal element
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+  
+    // Dynamically generate modal content
+    const modalContent = `
+      <div class="modal-content">
+        <img src="${imageUrl}" alt="${imageAlt}" class="modal-image">
+      </div>
+    `;
+    console.log(modalContent);
+    modal.innerHTML = modalContent;
+
+    // Append the modal to the body
+    document.body.appendChild(modal);
+
+    // Add click event listener to close the modal
+    modal.addEventListener('click', () => {
+      modal.remove();
+    });
+  });
 });
